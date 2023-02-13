@@ -11,19 +11,25 @@ interface ToThrowErrorWhich<R> {
    * Allows you to perform any number of any kind of assertions on a thrown error / value from a rejected promise.
    *
    * @param {AssertionCallback} assertionCallback - you can perform assertions inside this function
-   * or return a boolean or ExpectationResult saying if the error is as expected
+   * or return a boolean or ExpectationResult (or a Promise resolving to boolean or ExpectationResult)
+   * saying if the error is as expected
    *
-   * @example
+   * @example - expecting an error to be thrown; assertion callback contains standalone assertions
    * expect(() => crashTheUniverse()).toThrowErrorWhich(error => {
    *     expect(error).toBeInstanceOf(InsufficientForceError)
    *     expect(error).toHaveProperty('appliedForce', '100 N')
    * })
    *
-   * @example
+   * @example - expecting promise rejection; assertion callback returns ExpectationResult
    * expect(crashTheUniverseAsync()).rejects.toThrowErrorWhich(error => ({
-   *     pass: isAxiosError(error) && error.response?.status === 400,
+   *     pass: isAxiosError(error) && error.response.status === 400,
    *     message: () => `Expected an error caused by the 400 response code, got ${error}.`,
    * })
+   *
+   * @example - expecting promise rejection; assertion callback returns boolean (default message will be used)
+   * expect(crashTheUniverseAsync()).rejects.toThrowErrorWhich(
+   *     error => isAxiosError(error) && error.response.status === 400
+   * )
    */
   toThrowErrorWhich(assertionCallback: AssertionCallback): R
 }
