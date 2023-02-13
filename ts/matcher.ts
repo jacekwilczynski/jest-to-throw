@@ -3,7 +3,7 @@ import { AssertionCallback } from './types'
 import { getError } from './getError'
 import { evaluate } from './evaluate'
 
-export const toThrowErrorWhich = function (value, assertionCallback) {
+export const toThrowErrorWhich = async function (value, assertionCallback) {
   if (this.isNot) {
     throw new JestAssertionError(
       'Negated `toThrowErrorWhich` not supported. Instead of using `.not`, ' +
@@ -11,7 +11,7 @@ export const toThrowErrorWhich = function (value, assertionCallback) {
     )
   }
 
-  const error = getError.call(this, value)
+  const error = await getError.call(this, value)
 
-  return evaluate(error, assertionCallback)
+  return await evaluate(error, assertionCallback)
 } satisfies MatcherFunction<[AssertionCallback]>
