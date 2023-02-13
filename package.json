@@ -1,6 +1,6 @@
 {
   "name": "jest-to-throw",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A Jest matcher that lets you perform any assertions about a thrown error.",
   "main": "js/index.js",
   "author": {
@@ -10,7 +10,7 @@
   },
   "license": "ISC",
   "scripts": {
-    "prepublish": "tsc"
+    "prepack": "tsc"
   },
   "peerDependencies": {
     "expect": "^29.4.2"
