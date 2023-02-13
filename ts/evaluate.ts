@@ -1,6 +1,10 @@
 import { AssertionCallback } from './types'
 import { AsyncExpectationResult } from 'expect'
 
+/**
+ * @param error the thing that was thrown / the value from a rejected promise
+ * @param assertionCallback a function that will check if the error matches expectations
+ */
 export async function evaluate(error: unknown, assertionCallback: AssertionCallback): AsyncExpectationResult {
   try {
     const result = await assertionCallback(error)
@@ -18,6 +22,7 @@ export async function evaluate(error: unknown, assertionCallback: AssertionCallb
   } catch (error: any) {
     // assertion callback threw an error -> convert it to an ExpectationResult
     const message = error?.matcherResult?.message
+
     return {
       pass: false,
       message: () => message ?? `Unexpected error from assertion callback: ${error}.`,

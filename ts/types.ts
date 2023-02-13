@@ -15,7 +15,7 @@ interface ToThrowErrorWhich<R> {
    *
    * @example
    * expect(() => crashTheUniverse()).toThrowErrorWhich(error => {
-   *     expect(error).toBeInstanceOf(UnsufficientForceError)
+   *     expect(error).toBeInstanceOf(InsufficientForceError)
    *     expect(error).toHaveProperty('appliedForce', '100 N')
    * })
    *
