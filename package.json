@@ -1,8 +1,9 @@
 {
   "name": "jest-to-throw",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A Jest matcher that lets you perform any assertions about a thrown error.",
   "main": "js/index.js",
+  "types": "./ts/types.ts",
   "author": {
     "name": "Jacek Wilczyński",
     "email": "jacekwilczynski5@gmail.com",
