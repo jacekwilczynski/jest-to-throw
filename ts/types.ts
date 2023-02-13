@@ -1,9 +1,8 @@
+import { ExpectationResult } from 'expect'
 
 // `any` because Jest's `expect` does not work well with TypeScript. For example,
 // `expect(error).toBeInstanceOf(Error)` does not inform TS that `error` is an instance of `Error`,
 // so TS still sees it as type `unknown` and doesn't allow you to e.g. access `error.message`.
-import { ExpectationResult } from 'expect'
-
 export type AssertionCallback = (error: any) => AssertionCallbackResult | Promise<AssertionCallbackResult>
 export type AssertionCallbackResult = ExpectationResult | boolean | void
 
