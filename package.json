@@ -1,14 +1,17 @@
 {
   "name": "jest-to-throw",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Jest matcher that lets you perform any assertions about a thrown error.",
-  "main": "dist/index.js",
+  "main": "js/index.js",
   "author": {
     "name": "Jacek Wilczyński",
     "email": "jacekwilczynski5@gmail.com",
     "url": "https://github.com/jacekwilczynski"
   },
   "license": "ISC",
+  "scripts": {
+    "prepublish": "tsc"
+  },
   "peerDependencies": {
     "expect": "^29.4.2"
   },
