@@ -13,11 +13,11 @@
     "prepack": "tsc"
   },
   "peerDependencies": {
-    "expect": "^29.4.2"
+    "expect": "*"
   },
   "optionalDependencies": {
-    "@jest/globals": "^29.4.2",
-    "@types/jest": "^29.4.0"
+    "@jest/globals": "*",
+    "@types/jest": "*"
   },
   "devDependencies": {
     "typescript": "^4.9.5"
